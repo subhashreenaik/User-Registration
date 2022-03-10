@@ -6,10 +6,11 @@ import java.util.regex.Pattern;
 
 public class UserRegistration {
 	
-	/* Method to check validation of First name where regular expression of first name is defined */
-	public static boolean validFirstName(String s) {
+	/* Method to check validation of First and last name
+	 *  where regular expression of first and last name is defined */
+	public static boolean validForName(String s) {
 		
-		Pattern p = Pattern.compile("\\b[A-Z][a-z]{2,30}\\b");
+		Pattern p = Pattern.compile("[A-Z]{1}[a-z]{2,}");
 		Matcher m = p.matcher(s);
 		boolean b = m.matches(); 
 		
@@ -19,17 +20,22 @@ public class UserRegistration {
 
 	public static void main(String[] args) {
 		
-	    System.out.println("Welcome to User Registration Application Using Regex");
+	    
 	    
 		Scanner s=new Scanner(System.in);
 		System.out.println("Enter your first name  :");
 		String firstname = s.nextLine();
+		System.out.println("Enter your last name  :");
+		String lastname = s.nextLine();
 		
 		
-		
-		if(validFirstName(firstname) != true) 
+		if(validForName(firstname) != true) 
 		{
 		System.out.println("First name should start with Capital letter and has minimum 3 character");	
+		}
+		if(validForName(lastname) != true) 
+		{
+		System.out.println("Last name should start with Capital letter and has minimum 3 character");	
 		}
 		else 
 		{
