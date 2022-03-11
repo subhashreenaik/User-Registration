@@ -22,7 +22,16 @@ public class UserRegistration {
 	 *  where regular expression of emailId is defined */
     public static boolean validEmailId(String s) {
 		
-		Pattern p = Pattern.compile("[a-z]{2,}(((.?)(_?)*[a-z0-9]*){2,})*@[a-z]{1,}.[a-z]{1,}(.[a-z]*{1,})*");
+		Pattern p = Pattern.compile("[a-z]{2,}(((.?)[+-]*(_?)*[a-z0-9]*){2,})*@[a-z]{1,}.[a-z]{1,}(.[a-z]*{1,})*");
+		Matcher m = p.matcher(s);
+		boolean b = m.matches(); 
+		
+		return b;
+		
+	    }
+ public static boolean validMobileNo(String s) {
+		
+		Pattern p = Pattern.compile("91 [0-9]{10}");
 		Matcher m = p.matcher(s);
 		boolean b = m.matches(); 
 		
@@ -41,7 +50,8 @@ public class UserRegistration {
 		String lastname = s.nextLine();
 		System.out.println("Enter your emailID  :");
 		String emailid = s.nextLine();
-		
+		System.out.println("Enter your mobile Number  :");
+		String mobileno = s.nextLine();
 		
 		if(validForName(firstname) != true) 
 		{
@@ -54,6 +64,10 @@ public class UserRegistration {
 		if(validEmailId(emailid) != true) 
 		{
 		System.out.println("Please give a valid emailID");	
+		}
+		if(validMobileNo(mobileno) != true) 
+		{
+		System.out.println("Please give a valid mobile Number");	
 		}
 		else 
 		{
