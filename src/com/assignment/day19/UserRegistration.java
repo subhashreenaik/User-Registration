@@ -39,7 +39,7 @@ public static boolean validEmailId(String s) {
 		
 	    }
  public static boolean validPassword(String s) {
-		Pattern p = Pattern.compile("([A-Za-z0-9]){8,}");
+		Pattern p = Pattern.compile("(?=.*[A-Z]){1}([A-Za-z0-9]){7,}");
 		Matcher m = p.matcher(s);
 		boolean b = m.matches(); 
 		
